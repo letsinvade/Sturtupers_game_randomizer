@@ -1,0 +1,41 @@
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content {
+    margin-bottom: 24px;
+}
+
+.results {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.results__item {
+    margin-bottom: 16px;
+    padding: 15px;
+    text-align: left;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.results__team {
+    margin-bottom: 16px;
+}
+
+.results__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 4px;
+}
+
+.results__title {
+    min-width: 90px;
+    margin-right: 16px;
+}
+
+.results__text {
+    margin-bottom: 0;
+}
