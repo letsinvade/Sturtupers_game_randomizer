@@ -1,5 +1,4 @@
 const listNames = [
-    'sphereCondition',
     'technologyCondition',
     'audienceCondition'
 ]
@@ -25,12 +24,12 @@ function generateResultItem(data, index) {
     return `<li class="results__item">
                 <h3 class="results__team">Команда ${index + 1}</h3>
                 <div class="results__row">
-                    <h4 class="results__title">Сфера:</h4>
-                    <p class="results__text">${data.sphereCondition}</p>
+                    <h4 class="results__title">Условие 1:</h4>
+                    <p class="results__text">${data.technologyConditions[0]}</p>
                 </div>
                 <div class="results__row">
-                    <h4 class="results__title">Технология:</h4>
-                    <p class="results__text">${data.technologyCondition}</p>
+                    <h4 class="results__title">Условие 2:</h4>
+                    <p class="results__text">${data.technologyConditions[1]}</p>
                 </div>
                 <div class="results__row">
                     <h4 class="results__title">Аудитория:</h4>
@@ -41,61 +40,86 @@ function generateResultItem(data, index) {
 
 function prepareItemInfo() {
     let result = {
-        sphereCondition: null,
-        technologyCondition: null,
+        technologyConditions: [],
         audienceCondition: null
     };
 
-    listNames.forEach(name => {
-        const index = Math.floor(Math.random() * Math.floor(conditions[name].length));
-        result[name] = conditions[name][index];
-        conditions[name].splice(index, 1);
-    })
+    for (let i = 0; i < 2; i++) {
+        const index = Math.floor(Math.random() * Math.floor(conditions.technologyCondition.length));
+        result.technologyConditions.push(conditions.technologyCondition[index]);
+        conditions.technologyCondition.splice(index, 1);
+    }
+
+    const index = Math.floor(Math.random() * Math.floor(conditions.audienceCondition.length));
+    result.audienceCondition = conditions.audienceCondition[index];
+    conditions.audienceCondition.splice(index, 1);
 
     return result;
 }
 
 function initConditions() {
     conditions = {
-        sphereCondition: [
-            'Медицина',
-            'Образование',
-            'Еда',
-            'Геолокация',
-            'Доставка',
-            'Для работы',
-            'Для отдыха',
-            'Социально направленный проект',
-            'Эмоциональное состояние',
-            'Планирование жизни',
-            'Финансы'
-        ],
         technologyCondition: [
+            'Социальная сеть',
+            'Мобильное приложение',
+            'Интернет-сервис (браузерный)',
+            'Для личной безопасности',
+            'С применением 3D печати',
+            'Образовательный проект',
+            'Облачное хранилище данных',
+            'Встроенная обработка фотографий',
+            'Над контентом одновременно могут работать несколько пользователей',
             'VR',
-            'AR',
-            'AI',
-            'Геолокация',
-            'Рекомендательная система',
-            'Маркетплейс',
-            'Тулза',
-            'Наличие собственной валюты',
-            'Уникальный девайс',
-            'Датчики для сбора данных',
-            'Совместное использование',
+            'Дополненная реальность',
+            'Искусственный интеллект',
+            'С привязкой к геолокации',
+            'Связан с защитой окружающей среды',
+            'Пользователи выкладывают видео',
+            'Статистика использования в личном кабинете',
             'Голосовое управление',
-            'Дроны'
+            'Платная подписка',
+            'Используется при перелетах',
+            'Возможность отправлять сообщения другим пользователям',
+            'Возможность совершать покупки',
+            'Связь со стриминговыми сервисами',
+            'Встроенная карта Земли',
+            'Дистанционное управление',
+            'Использование роботов',
+            'Звуковой контент',
+            'Измеряет температуру',
+            'Связано с едой',
+            'Управление летающим дроном',
+            'Связано с музыкой',
+            'Для здоровья',
+            'Спорт',
+            'Кинотеатры',
+            'Связано с дорожным движением',
+            'Транспорт',
+            'Доставка',
+            'Ежедневное применение',
+            'Внутренняя валюта',
+            'Умный дом',
+            'Управление силой мысли (нейроинтерфейсы)'
         ],
         audienceCondition: [
-            'Молодые родители',
+            'Для родителей',
             'Педагоги',
-            'Полицейские',
-            'Боксеры',
-            'Пожилые люди',
-            'Родители школьников',
             'Представители гос. учреждений',
             'Программисты',
             'Студенты',
-            'Автомобильные туристы'
+            'Для тех, кто делает ремонт',
+            'Для использования на концерте',
+            'Для биологов',
+            'Для туристов',
+            'Для дальнобойщиков',
+            'Для детей',
+            'Основные пользователи – бабушки',
+            'Основные пользователи – врачи',
+            'Основные заказчики – школы',
+            'Для офисных сотрудников',
+            'Для социально незащищенных групп',
         ]
     }
 }
+
+
